@@ -1,0 +1,103 @@
+<div>
+    <p id="textid" class="textclass">first data</p>
+    <p class="textclass">second data</p>
+    <p class="textclass">third data</p>
+
+    <input type="text" name="address" id="add1" value="jaipur">
+    <input type="text" name="address" value="ajmer">
+
+
+    <button onclick="alert('hello button')">view</button>
+    <button id="btn">show </button>
+    <button id="btnPreview">Preview </button>
+
+</div>
+
+<button id="btnBasic">Basic Event </button>
+<button id="btnMedium"> Medium Event </button>
+<button id="btnAdvance">Advance Event </button>
+<p class="textclass outer"> outer data</p>
+
+<script>
+    const button = document.getElementById("btn");
+    button.addEventListener("click", () => {
+        //document.getElementById('add1').textContent = 'Updated data';
+        document.getElementById('add1').value = 'Updated data';
+        //document.getElementById('text').id='tre';
+        // alert("Total classes are " + document.getElementsByClassName('textclass').length);
+
+        // alert("Total Tags are " + document.getElementsByTagName('p').length);
+
+        // const address = document.getElementsByName('address');
+        // address.forEach(ad => { console.log(ad.value) });
+
+        document.querySelectorAll('textclass').innerHTML = 'hello';
+
+    });
+
+    const basicBtn = document.getElementById('btnBasic');
+    basicBtn.onclick = function () {
+        alert('basic button clicked ');
+
+        //use advance event
+        const advanceBtn = document.getElementById('btnAdvance');
+        advanceBtn.removeEventListener('click', advanceclickbtn);
+    }
+
+    const mediumBtn = document.getElementById('btnMedium');
+    mediumBtn.addEventListener('click', function (event) {
+        alert('Normal button clicked');
+
+        //use advance event
+        const advanceBtn = document.getElementById('btnAdvance');
+        advanceBtn.addEventListener('click', advanceclickbtn);
+    })
+
+
+    function advanceclickbtn() {
+        alert('advance button clicked');
+    }
+    // const advanceBtn = document.getElementById('btnAdvance');
+    // advanceBtn.addEventListener('click', advanceclickbtn);
+    // advanceBtn.removeEventListener('click', advanceclickbtn);
+
+
+
+    const bbtn = document.getElementById('btnPreview');
+    // bbtn.onclick = function (event) {
+    //     alert("Preview button showed " + event.type);
+    // }
+
+    bbtn.addEventListener('click',function(event){
+        alert("Preview can show here");
+             const advanceBtn = document.getElementById('btnAdvance');
+             advanceBtn.addEventListener('click',advanceclickbtn);
+    })
+
+
+
+//1. Template Literals
+const name="himanshu";
+const line=`my name is ${name}`;
+console.log(line);
+
+
+//Array Destructuring
+const sites=['facebook','youtube','instagram'];
+const[site1,site2]=sites;
+console.log(site1,site2);
+
+//Object Destructuring
+const car={brand:'tata',size:'4 seeter'};
+const{brand,size}=car;
+console.log(brand,size);
+
+//Spread Operator
+const counting=[1,2,3];
+const newCount=[...counting,4,5,6];
+console.log(newCount);
+
+//rest operator
+const [first,...rest]=[1,2,3];
+console.log(first,rest);
+</script>
