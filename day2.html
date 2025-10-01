@@ -13,6 +13,10 @@
 
 </div>
 
+<div id="dvChangable">
+    <input type="text" value="name">
+</div>
+
 <button id="btnBasic">Basic Event </button>
 <button id="btnMedium"> Medium Event </button>
 <button id="btnAdvance">Advance Event </button>
@@ -68,36 +72,58 @@
     //     alert("Preview button showed " + event.type);
     // }
 
-    bbtn.addEventListener('click',function(event){
+    bbtn.addEventListener('click', function (event) {
         alert("Preview can show here");
-             const advanceBtn = document.getElementById('btnAdvance');
-             advanceBtn.addEventListener('click',advanceclickbtn);
+        const advanceBtn = document.getElementById('btnAdvance');
+        advanceBtn.addEventListener('click', advanceclickbtn);
+        document.getElementById('dvChangable').innerHTML = '<p>Hello guys</p>';
     })
 
 
 
-//1. Template Literals
-const name="himanshu";
-const line=`my name is ${name}`;
-console.log(line);
+    //1. Template Literals
+    const name = "himanshu";
+    const line = `my name is ${name}`;
+    console.log(line);
 
 
-//Array Destructuring
-const sites=['facebook','youtube','instagram'];
-const[site1,site2]=sites;
-console.log(site1,site2);
+    //Array Destructuring
+    const sites = ['facebook', 'youtube', 'instagram'];
+    const [site1, site2] = sites;
+    console.log(site1, site2);
 
-//Object Destructuring
-const car={brand:'tata',size:'4 seeter'};
-const{brand,size}=car;
-console.log(brand,size);
+    //Object Destructuring
+    const car = [{ brand: 'tata', size: '4 seeter' },
+    { brand: 'skoda', size: '7 seeter' }];
+    const [{ brand, size }] = car.filter(({ brand }) => brand == 'tata');
+    //    console.log(car.filter(({ brand }) => brand == 'skoda'));
+    console.log({ brand }, { size });
 
-//Spread Operator
-const counting=[1,2,3];
-const newCount=[...counting,4,5,6];
-console.log(newCount);
+    //Spread Operator
+    const counting = [1, 2, 3];
+    const newCount = [...counting, 4, 5, 6];
+    console.log(newCount);
 
-//rest operator
-const [first,...rest]=[1,2,3];
-console.log(first,rest);
+    //rest operator
+    const [first, ...rest] = [1, 2, 3];
+    console.log(first, rest);
+
+
+    const previewButtonNew = document.getElementById('btnPreview');
+    previewButtonNew.onclick = function () {
+        alert('hello');
+    }
+
+    previewButtonNew.addEventListener('click',function(){
+
+        const newButton=document.getElementById('btn');
+        newButton.addEventListener('click',callAlert);
+        newButton.removeEventListener('click',callAlert);
+    })
+
+
+   function callAlert(){
+    alert('hello');
+   }
+
 </script>

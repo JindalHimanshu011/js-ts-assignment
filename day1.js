@@ -3,6 +3,13 @@ var firstvariable = 'hello';
 let secondvariable = 'bye';
 const thirdvariable = false;
 
+
+
+innerHTML
+textContent
+value
+id
+
 var firstvariable = 'hello himanshu';
 console.log(firstvariable);
 
@@ -140,7 +147,7 @@ console.log(checknumber(-60));
 
 
 
-
+//scope
 
 function getName() {
     var name = "himanshu";
@@ -174,3 +181,6 @@ console.log(car.find(({name})=>name=='sohan'));
 
 let counting = [1,2,3,4,5,7,8];
 console.log(counting.find(c=>c>5));
+
+
+
