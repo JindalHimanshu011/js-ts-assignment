@@ -1,3 +1,4 @@
+
 // const setTimeid = setTimeout(() => { alert('Hello') }, 1000);
 
 // clearTimeout(setTimeid);
@@ -144,6 +145,41 @@
 
 
 
+
+// async function postFetch() {
+
+//     const postData = {
+//         title: 'i am title',
+//         body: 'i am body',
+//         userId: 2
+//     }
+//     try {
+//         const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify(postData)
+//         });
+
+//         if (!response.ok) {
+//             throw new Error('Network Error ' + response.status);
+//         }
+//         const data = await response.json();
+//         console.log('result ', data);
+
+//     }
+//     catch (error) {
+//         console.error('Error: ' + error);
+
+//     }
+// }
+
+// postFetch();
+
+
+
+
 //get https://jsonplaceholder.typicode.com/posts/1
 //post https://jsonplaceholder.typicode.com/posts
 
@@ -153,34 +189,25 @@
 
 //post-title
 
-
-async function postFetch() {
-
-    const postData = {
-        title: 'i am title',
-        body: 'i am body',
-        userId: 2
-    }
+function getName() {
     try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(postData)
-        });
 
-        if (!response.ok) {
-            throw new Error('Network Error ' + response.status);
+        fetch('https://jsonplaceholder.typicode.com/posts/1').then(data => {
+            if (!data.ok) {
+                throw new Error('Network Error');
+            }
+
+            return data.json();
+        }).then(data => {
+            console.log(data);
         }
-        const data = await response.json();
-        console.log('result ', data);
+        )
 
     }
     catch (error) {
-        console.error('Error: ' + error);
-
+        console.error(error);
     }
+
 }
 
-postFetch();
+//getName();

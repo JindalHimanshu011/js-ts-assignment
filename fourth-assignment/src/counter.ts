@@ -88,4 +88,11 @@ export function variableHandelling() {
 
   //Type Alias
   type User = { name: string; }
+
+  type userstring = string;
+
+  let uname: userstring;
+  uname = '543xc';
+
+
 }

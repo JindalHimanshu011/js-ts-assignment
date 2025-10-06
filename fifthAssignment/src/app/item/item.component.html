@@ -1,0 +1,23 @@
+
+<div>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Lot Number</th>
+            <th>Quantity</th>
+            <th>Manufacturing Date</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let item of items">
+            <td>{{item.name}}</td>
+            <td>{{item.lotNumber}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.manufacturingDate}}</td>
+            <td>
+                <button (click)="tagPrint(item.lotNumber,tagType.Normal)">Normal</button>
+                <button (click)="tagPrint(item.lotNumber,tagType.Export)">Export</button>
+                <button (click)="tagPrint(item.lotNumber,tagType.Return)">Return</button>
+            </td>
+        </tr>
+    </table>
+</div>
