@@ -1,0 +1,5 @@
+<p *ngIf="isVisible">user works!</p>
+
+<ul [ngClass]="['red-text']">
+    <li [ngStyle]="{color:'gray'}" *ngFor="let user of users">{{user}}</li>
+</ul>
