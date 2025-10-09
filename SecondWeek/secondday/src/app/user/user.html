@@ -1,5 +1,8 @@
-<p *ngIf="isVisible">user works!</p>
 
-<ul [ngClass]="['red-text']">
+<p *ngIf="isVisible" [ngClass]="['red-text']" >user works!</p>
+<!-- <h3>Name : {{name}}</h3> -->
+<ul>
     <li [ngStyle]="{color:'gray'}" *ngFor="let user of users">{{user}}</li>
 </ul>
+
+<button (click)="GoDashBoard()">Go to dashboard</button>

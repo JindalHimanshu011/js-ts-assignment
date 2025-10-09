@@ -1,0 +1,20 @@
+<body>
+    <div class="login-container">
+        <h1 [innerHTML]="heading"></h1>
+        <form [formGroup]="logInForm" (ngSubmit)="LogIn()">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" formControlName="userName" placeholder="Enter your username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" placeholder="Enter your password" required>
+            </div>
+            <button class="btn" type="submit" [disabled]="!logInForm.valid">Login</button>
+            <button (click)="Registration()" class="btn" [attr.aria-label]="btnLabel">Registration</button>
+
+        </form>
+    </div>
+</body>
+
+<input [value]="loginUserName"/>
