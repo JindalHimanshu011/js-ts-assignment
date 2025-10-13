@@ -1,0 +1,14 @@
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <form [formGroup]="movieForm">
+            <h1>Add Movie</h1>
+        <input type="text" placeHolder="Genre" name="genre" formControlName="genre" />
+        <input type="text" placeHolder="Title" name="title" formControlName="title" />
+        <button (click)="save()" type="submit" [disabled]="!movieForm.valid">Save</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<div>
+    <h1>Expence List</h1>
+    <input type="text" placeholder="filter by category" [(ngModel)]="CategoryFilter">
+    <input type="text" placeholder="filter by date" [(ngModel)]="DateFilter">
+    <table>
+        <tr>
+            <th>Expence Name</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Date</th>
+        </tr>
+        <tr *ngFor="let item of filterData()">
+            <td [appCustomStyle]="item.amount" >{{item.expenceName}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{item.expenceDate}}</td>
+        </tr>
+    </table>
+    <button (click)="goBack()" type="submit">Go Back</button>
+</div>
+
+
+
+

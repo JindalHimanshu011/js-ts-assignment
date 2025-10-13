@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +8,14 @@ import { AbstractControl, ValidationErrors } from '@angular/forms';
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
+
+// @NgModule({
+//   declarations: [
+//     // other components/directives,
+//     HoverColorDirective
+//   ],
+//   // ...
+// })
 export class Login {
 
   logInForm: FormGroup = new FormGroup({
@@ -32,6 +39,7 @@ export class Login {
     alert("Log In Successfully");
     // this.router.navigate(['registration']);
   }
+
 
 }
 

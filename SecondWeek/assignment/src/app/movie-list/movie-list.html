@@ -1,0 +1,22 @@
+<div>
+    <h1>Movie List</h1>
+    <input type="text" placeholder="filter by genre" [(ngModel)]="GenreFilter">
+    <table>
+        <tr>
+            <th>Genre</th>
+            <th>Title</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let item of filterData()">
+            <td>
+                <span [appCustomFavStyle]="item.isFav"> {{item.genre}}</span>
+            </td>
+            <td>{{item.title}}</td>
+            <td>
+                <button (click)="addFav(item.id)" [disabled]="item.isFav"> {{item.isFav?"Added to favorite":"Add to
+                    favorite"}}</button>
+            </td>
+        </tr>
+    </table>
+    <button (click)="goBack()" type="submit">Go Back</button>
+</div>
