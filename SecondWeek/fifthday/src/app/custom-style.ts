@@ -14,7 +14,7 @@ export class CustomStyle {
       this.el.nativeElement.style.color = "red";
     }
     else if (this.appCustomStyle > 500) {
-      this.el.nativeElement.style.color = "yellow";
+      this.el.nativeElement.style.color = "green";
     }
 
 

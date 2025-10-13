@@ -1,11 +1,16 @@
 <html lang="en">
+
 <head>
 
 </head>
+
 <body>
     <form [formGroup]="movieForm">
-            <h1>Add Movie</h1>
+        <h1>Add Movie</h1>
         <input type="text" placeHolder="Genre" name="genre" formControlName="genre" />
+        <div *ngIf="movieForm.get('genre')?.hasError('maxlength') && movieForm.get('genre')?.touched" style="color:red">
+            can not be more then 10 chatactor.
+        </div>
         <input type="text" placeHolder="Title" name="title" formControlName="title" />
         <button (click)="save()" type="submit" [disabled]="!movieForm.valid">Save</button>
     </form>

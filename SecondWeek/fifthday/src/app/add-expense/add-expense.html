@@ -7,7 +7,10 @@
     <form [formGroup]="expenceForm">
             <h1>Add Expense</h1>
         <input type="text" placeHolder="Category" name="category" formControlName="category" />
-        <input type="text" placeHolder="Expence Name" name="expenceName" formControlName="expenceName" />
+        <!-- <div ngIf="expenceForm.get('category')?.hasError('maxlength') && expenceForm.get('category').touched">
+            can not be more the 15 charactor
+        </div> -->
+        <input type="text" placeHolder="Expence Name" name="expenceName"  formControlName="expenceName" />
         <input type="number" placeHolder="Amount" type="number" name="amount" formControlName="amount" />
         <input type="date" name="expenceDate" [value]="today" formControlName="expenceDate" />
         <button (click)="save()" type="submit" [disabled]="!expenceForm.valid">Save</button>

@@ -4,7 +4,7 @@ import { Directive, ElementRef, Input, } from '@angular/core';
   selector: '[appCustomFavStyle]'
 })
 export class CustomFavStyle {
-  @Input() appCustomFavStyle: boolean | null = null;
+  @Input() appCustomFavStyle: boolean = false;
 
   constructor(private el: ElementRef) {
 
@@ -12,7 +12,7 @@ export class CustomFavStyle {
 
   ngOnInit() {
     if (this.appCustomFavStyle) {
-      this.el.nativeElement.style.color = "red";
+      this.el.nativeElement.style.display = null;
     }
   }
 

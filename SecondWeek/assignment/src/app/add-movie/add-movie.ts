@@ -1,16 +1,17 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-movie',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './add-movie.html',
   styleUrl: './add-movie.css'
 })
 export class AddMovie {
 
   movieForm: FormGroup = new FormGroup({
-    genre: new FormControl("", [Validators.required]),
+    genre: new FormControl("", [Validators.required, Validators.maxLength(10)]),
     title: new FormControl("", [Validators.required]),
   })
   constructor(private router: Router) {
@@ -23,7 +24,7 @@ export class AddMovie {
       id: number;
       title: string;
       genre: string;
-      isFav:Boolean;
+      isFav: Boolean;
     }
 
     let movie: movieType = {

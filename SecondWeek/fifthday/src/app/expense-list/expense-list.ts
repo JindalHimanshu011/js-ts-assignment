@@ -35,7 +35,6 @@ export class ExpenseList {
       parseData = JSON.parse(expences);
       expenceRecord = Array.isArray(parseData) ? parseData : [];
     }
-    debugger;
     this.returnData = expenceRecord;
   }
 

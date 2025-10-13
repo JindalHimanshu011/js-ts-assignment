@@ -1,16 +1,17 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-expense',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './add-expense.html',
   styleUrl: './add-expense.css'
 })
 export class AddExpense {
 
   expenceForm: FormGroup = new FormGroup({
-    category: new FormControl("", [Validators.required]),
+    category: new FormControl("", [Validators.required, Validators.maxLength(15)]),
     amount: new FormControl("", [Validators.required]),
     expenceName: new FormControl("", [Validators.required]),
     expenceDate: new FormControl(""),
@@ -20,7 +21,8 @@ export class AddExpense {
 
   }
 
-  save() {
+  public save(): void {
+    console.log('hello');
     let formValue = this.expenceForm.value;
     interface expenceType {
       category: string;
