@@ -1,7 +1,8 @@
 <div>
     <h1>Expence List</h1>
     <input type="text" placeholder="filter by category" [(ngModel)]="CategoryFilter">
-    <input type="text" placeholder="filter by date" [(ngModel)]="DateFilter">
+    Filter by Date
+    <input type="date" class="custom-datepicker" placeholder="filter by date" [(ngModel)]="DateFilter">
     <table>
         <tr>
             <th>Expence Name</th>
@@ -9,12 +10,26 @@
             <th>Amount</th>
             <th>Date</th>
         </tr>
+        @if(filterData().length>0){
         <tr *ngFor="let item of filterData()">
-            <td [appCustomStyle]="item.amount" >{{item.expenceName}}</td>
+
+            <td [appCustomStyle]="item.amount" title="Green: amount more 500, Red : amount more then 1000 ">{{item.expenceName}}</td>
             <td>{{item.category}}</td>
             <td>{{item.amount}}</td>
             <td>{{item.expenceDate}}</td>
         </tr>
+        <tr> 
+            <td [attr.colspan]="2"></td>
+            <td [attr.colspan]="2"> Total amount is: {{totalAmount}}</td>
+        </tr>
+        }
+        @else
+        {
+            <tr>
+                <td [attr.colspan]="4" [style.color]="'red'"> No Record Found</td>
+            </tr>
+        }
+
     </table>
     <button (click)="goBack()" type="submit">Go Back</button>
 </div>

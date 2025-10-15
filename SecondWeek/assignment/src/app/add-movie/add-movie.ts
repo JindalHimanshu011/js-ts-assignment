@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { addMovieType } from '../interface'
 @Component({
   selector: 'app-add-movie',
   imports: [ReactiveFormsModule, CommonModule],
@@ -20,21 +21,15 @@ export class AddMovie {
 
   save() {
     let formValue = this.movieForm.value;
-    interface movieType {
-      id: number;
-      title: string;
-      genre: string;
-      isFav: Boolean;
-    }
 
-    let movie: movieType = {
+    let movie: addMovieType = {
       id: 1,
       title: formValue.title,
       genre: formValue.genre,
       isFav: false
     }
     let parseData = "";
-    let movieRecord: movieType[] = [];
+    let movieRecord: addMovieType[] = [];
     let maxId = 0;
 
     let movies = localStorage.getItem('movies');
@@ -48,6 +43,12 @@ export class AddMovie {
     movieRecord.push(movie);
 
     localStorage.setItem('movies', JSON.stringify(movieRecord));
+    this.router.navigate(['movielist']);
+    alert('Movie added successfully');
+  }
+
+  public goToMovie() : void
+  {
     this.router.navigate(['movielist']);
   }
 

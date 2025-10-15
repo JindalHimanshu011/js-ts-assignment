@@ -9,9 +9,16 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class TemplateForm {
 
-  submitForm(form: NgForm) {
+  user = {
+    userName: "Himanshu",
+    userEmail: "Himanshu@gmail.com"
+  }
+
+  public submitForm(form: NgForm): void {
+
+
     if (form.valid) {
-      console.log('Form Submitted:', form.value); // access form values here
+      console.log('Form Submitted:', form.value);
     } else {
       console.warn('Form is invalid');
     }

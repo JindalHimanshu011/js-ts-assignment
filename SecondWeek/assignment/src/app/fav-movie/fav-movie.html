@@ -1,0 +1,27 @@
+<div>
+    <h1>favorite Movie List</h1>
+    <input type="text" placeholder="filter by genre" [(ngModel)]="GenreFilter">
+    <table>
+        <tr>
+            <th>Genre</th>
+            <th>Title</th>
+        </tr>
+        @if(filterData().length>0){
+        <tr *ngFor="let item of filterData()">
+            <td>
+                {{item.genre}}
+            </td>
+            <td>{{item.title}}</td>
+
+        </tr>
+        }
+        @else
+        {
+        <tr>
+            <td [attr.colspan]="2" [style.color]="'red'">No Record Found</td>
+        </tr>
+
+        }
+    </table>
+    <button (click)="movieList()" type="submit">Go to Movies List</button>
+</div>

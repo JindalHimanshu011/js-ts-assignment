@@ -7,16 +7,28 @@
             <th>Title</th>
             <th>Action</th>
         </tr>
+        @if(filterData().length>0)
+        {
         <tr *ngFor="let item of filterData()">
             <td>
-                <span [appCustomFavStyle]="item.isFav" > {{item.genre}}</span>
+                <span [appCustomFavStyle]="item.isFav"> {{item.genre}}</span>
             </td>
             <td>{{item.title}}</td>
             <td>
-                <button (click)="addFav(item.id)" [disabled]="item.isFav"> {{item.isFav?"Added to favorite":"Add to
-                    favorite"}}</button>
+                <button (click)="item.isFav?removeFav(item.id):addFav(item.id)"> {{item.isFav?"remove from favorite":"Add to favorite"}}</button>
             </td>
         </tr>
+        }
+        @else
+        {
+        <tr>
+            <td [attr.colspan]="2" [style.color]="'red'">No Record Found</td>
+        </tr>
+        }
+
     </table>
-    <button (click)="goBack()" type="submit">Go Back</button>
+    <div> <button (click)="goBack()" type="submit">Go to add movie</button>
+        <button style="margin:20px" (click)="FavMovie()" type="submit">Go to Fav Movies</button>
+    </div>
+
 </div>

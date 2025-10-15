@@ -17,7 +17,9 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-    input[type="text"],  input[type="number"], input[type="date"] {
+    input[type="text"],
+    input[type="number"],
+    input[type="date"] {
       display: block;
       width: 100%;
       margin-bottom: 10px;
@@ -27,13 +29,23 @@
       font-size: 14px;
     }
 
-    button[type="submit"] {
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      cursor: pointer;
+    .setbutton {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: 10px;
     }
 
-    button[type="submit"]:hover {
-      background-color: #0056b3;
+    .custom-datepicker {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .custom-datepicker:focus {
+      border-color: #3f51b5;
+      box-shadow: 0 0 3px rgba(63, 81, 181, 0.5);
     }

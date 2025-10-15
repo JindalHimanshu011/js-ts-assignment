@@ -26,9 +26,3 @@
       font-size: 14px;
     }
 
-    button[type="submit"] {
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }

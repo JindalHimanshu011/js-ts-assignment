@@ -1,0 +1,8 @@
+<form #userForm="ngForm" (ngSubmit)="updateUser(username)">
+    <input type="text" name="username" required ngModel (ngModelChange)="inputUpdate('username',$event)" />
+    <div [style.color]="'red'" *ngIf="usernameError">{{usernameError}}</div>
+    <br />
+    <button type="submit" [disabled]="!userForm.valid || isError()">Update</button>
+</form>
+
+    <button (click)="getUser()">view Name</button>

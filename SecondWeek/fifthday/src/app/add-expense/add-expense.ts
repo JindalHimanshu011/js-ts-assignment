@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import {expenceType} from '../interface'
 @Component({
   selector: 'app-add-expense',
   imports: [ReactiveFormsModule, CommonModule],
@@ -24,12 +25,6 @@ export class AddExpense {
   public save(): void {
     console.log('hello');
     let formValue = this.expenceForm.value;
-    interface expenceType {
-      category: string;
-      expenceName: string;
-      amount: string;
-      expenceDate: string
-    }
 
     let expence: expenceType = {
       category: formValue.category,
@@ -52,4 +47,7 @@ export class AddExpense {
     this.router.navigate(['expencelist']);
   }
 
+  public goExpense(): void {
+    this.router.navigate(['expencelist']);
+  }
 }

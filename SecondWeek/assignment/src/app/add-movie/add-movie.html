@@ -6,14 +6,27 @@
 
 <body>
     <form [formGroup]="movieForm">
-        <h1>Add Movie</h1>
+        <h3>Add Movie</h3>
         <input type="text" placeHolder="Genre" name="genre" formControlName="genre" />
-        <div *ngIf="movieForm.get('genre')?.hasError('maxlength') && movieForm.get('genre')?.touched" style="color:red">
+        <div *ngIf="movieForm.get('genre')?.hasError('maxlength') && movieForm.get('genre')?.touched" [style.color]="'red'">
             can not be more then 10 chatactor.
         </div>
+        <div *ngIf="movieForm.get('genre')?.hasError('required') && movieForm.get('genre')?.touched" [style.color]="'red'">
+            genre is required
+        </div>
         <input type="text" placeHolder="Title" name="title" formControlName="title" />
-        <button (click)="save()" type="submit" [disabled]="!movieForm.valid">Save</button>
+        <div *ngIf="movieForm.get('title')?.hasError('maxlength') && movieForm.get('title')?.touched" [style.color]="'red'">
+            can not be more then 10 chatactor.
+        </div>
+        <div *ngIf="movieForm.get('title')?.hasError('required') && movieForm.get('title')?.touched" [style.color]="'red'">
+            title is required
+        </div>
+        <div class="setbutton">
+            <button (click)="save()" type="submit" [disabled]="!movieForm.valid">Save</button>
+            <button (click)="goToMovie()" type="submit">Go to Movie List</button>
+        </div>
     </form>
+
 </body>
 
 </html>

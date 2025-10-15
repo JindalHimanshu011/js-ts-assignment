@@ -1,0 +1,8 @@
+.active
+{
+  background-color: yellow;
+}
+
+.highlighted {
+  border: 2px solid orange;
+}

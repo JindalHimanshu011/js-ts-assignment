@@ -1,0 +1,16 @@
+<p>Event-Bindning Practice</p>
+
+<button (click)="showMessage()">Show</button>
+
+<input (input)="showEventNormal($event)" />
+
+<input name="name" [(ngModel)]="name" (ngModelChange)="showEvent('name',$event)" />
+
+
+<button (click)="sayHello('himanshu')">Greet</button>
+
+
+<form #userForm="ngForm" (ngSubmit)="submitData(userForm)">
+    <input type="text" name="username" ngModel />
+    <button type="submit">submit</button>
+</form>

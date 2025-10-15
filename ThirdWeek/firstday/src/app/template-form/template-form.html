@@ -1,4 +1,5 @@
 <form #form="ngForm" (ngSubmit)="submitForm(form)">
-  <input name="username" ngModel required />
-  <button type="submit">Submit</button>
+  <input name="username" [(ngModel)]="user.userName" required placeholder="user name"/><br />
+  <input name="useremail" [(ngModel)]="user.userEmail" required placeholder="user email" /><br />
+  <button type="submit" [disabled]="!form.valid">Submit</button>
 </form>

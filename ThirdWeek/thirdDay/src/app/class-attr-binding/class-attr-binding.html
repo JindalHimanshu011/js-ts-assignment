@@ -1,0 +1,42 @@
+<h1>Class Attribute Binding Example </h1>
+
+
+<div [style.border]="'2px solid black'">
+    <h2>Class Binding Example </h2>
+
+    <p [class.active]="isActive">Hello</p>
+    <button (click)="toggle()">Change class</button>
+
+
+    <div [ngClass]="{active:isActive, highlighted:isHighlight} ">
+        multiple class
+    </div>
+
+    <button (click)="isActive=!isActive">Active class</button>
+    <button (click)="isHighlight=!isHighlight">Highlight class</button>
+
+
+</div>
+
+
+
+<div [style.border]="'2px solid black'">
+    <h2>Attribute Binding Example </h2>
+    <br />
+    <p [style.color]="isActive ? 'red' : 'green'">
+        Style Binding Example
+    </p>
+    <button (click)="toggle()">Change class</button>
+
+
+    <div [ngStyle]="{
+                    'background-color': bgColor,
+                    'color': textColor,
+                    'font-size.px': fontSize
+                    }">
+        Multiple Style Binding Example
+    </div>
+
+    <button (click)="changeStyle()">change div style </button>
+
+</div>

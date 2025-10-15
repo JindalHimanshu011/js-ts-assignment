@@ -12,7 +12,7 @@ export class CustomFavStyle {
 
   ngOnInit() {
     if (this.appCustomFavStyle) {
-      this.el.nativeElement.style.display = null;
+      this.el.nativeElement.style.color = 'red';
     }
   }
 

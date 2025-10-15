@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomStyle } from '../custom-style'
+import { expenceType } from '../interface'
 @Component({
   selector: 'app-expense-list',
   imports: [CommonModule, FormsModule, CustomStyle],
@@ -15,17 +16,11 @@ export class ExpenseList {
   returnData: any[] = [];
   CategoryFilter: string = '';
   DateFilter: string = '';
-
+  totalAmount: number = 0;
   constructor(private router: Router) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
 
-    interface expenceType {
-      category: string;
-      expenceName: string;
-      amount: string;
-      expenceDate: string
-    }
     let expenceRecord: expenceType[] = [];
 
     let expences = localStorage.getItem('expences');
@@ -39,13 +34,23 @@ export class ExpenseList {
   }
 
 
-  filterData() {
+  public filterData(): any[] {
+    debugger;
+    this.totalAmount = 0;
+
+    let filteredData = this.returnData.filter(
+      expence => expence.category?.toLowerCase().includes(this.CategoryFilter.toLowerCase())
+        && expence.expenceDate?.toLowerCase().includes(this.DateFilter.toLowerCase()));
+
+    filteredData.map(item => {
+      this.totalAmount += item.amount;
+    })
     return this.returnData.filter(
       expence => expence.category?.toLowerCase().includes(this.CategoryFilter.toLowerCase())
-        && expence.expenceDate?.toLowerCase().includes(this.DateFilter.toLowerCase()))
+        && expence.expenceDate?.toLowerCase().includes(this.DateFilter.toLowerCase()));
   }
 
-  goBack() {
+  public goBack(): void {
     this.router.navigate(['add-expence']);
   };
 }

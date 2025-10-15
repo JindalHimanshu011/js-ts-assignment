@@ -9,7 +9,7 @@ export class CustomStyle {
   constructor(private el: ElementRef) {
 
   }
-  ngOnInit() {
+  public ngOnInit(): void {
     if (this.appCustomStyle > 1000) {
       this.el.nativeElement.style.color = "red";
     }

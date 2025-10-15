@@ -11,7 +11,7 @@ export const routes: Routes = [
         component: ReactiveForm
     },
     {
-        path: 'templete',
+        path: 'template',
         component: TemplateForm
     }
 ];
