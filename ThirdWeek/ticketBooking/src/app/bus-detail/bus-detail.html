@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Details</title>
+</head>
+
+<body>
+    <header class="header">
+        <h1>Bus Details</h1>
+    </header>
+
+    <main class="bus-details">
+        <div class="bus-card" *ngFor="let item of returnData">
+            <h2>Bus Name: {{item.bus_model}}</h2>
+            <p><strong>Route:</strong> {{item.route_name}}</p>
+            <p><strong>Departure:</strong> {{item.departure_time}} AM</p>
+            <p><strong>Arrival:</strong> {{item.arrival_time}}</p>
+            <p><strong>Fare:</strong>{{item.fare}}</p>
+            <button class="book-btn" (click)="bookTicket()">Book Now</button>
+            <button class="book-btn" (click)="goBack()">Go Back</button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Bus Booking System. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

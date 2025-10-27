@@ -43,7 +43,7 @@ export class AllValidation {
       });
       this.updateData.UploadData(this.name);
     } else {
-      console.warn('Fix form errors before submitting');
+      console.error('Fix form errors before submitting');
     }
 
 

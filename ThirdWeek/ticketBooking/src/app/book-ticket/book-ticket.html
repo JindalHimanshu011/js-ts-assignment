@@ -1,1 +1,28 @@
-<p>book-ticket works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Ticket Booking</title>
+</head>
+
+<body>
+  <div class="booking-container">
+    <h1>Bus Ticket Booking</h1>
+    <form class="booking-form">
+      <div class="form-group">
+        <label for="date">Travel Date</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+      <div class="form-group">
+        <label for="passengers">Passengers</label>
+        <input type="number" id="passengers" name="passengers" min="1" max="10" required>
+      </div>
+      <button type="submit" class="book-btn" (click)="bookTicket()">Book Now</button>
+      <button type="button" class="book-btn" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+</body>
+
+</html>

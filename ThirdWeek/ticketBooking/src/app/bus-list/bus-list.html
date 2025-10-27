@@ -1,1 +1,26 @@
-<p>bus-list works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus List</title>
+</head>
+
+<body>
+  <header class="header">
+    <h1>Available Buses</h1>
+  </header>
+
+  <main class="bus-list">
+    <div class="bus-item" *ngFor="let item of BusRecord">
+      <h2 class="bus-name">{{item.bus_model}}</h2>
+      <p><strong>Departure:</strong>{{item.departure_time}}</p>
+      <p><strong>Arrival:</strong> {{item.arrival_time}}</p>
+      <p><strong>Price:</strong> {{item.fare}}</p>
+      <button class="book-btn" (click)="Busdetails(item.bus_id)">View</button>
+    </div>
+  </main>
+</body>
+
+</html>

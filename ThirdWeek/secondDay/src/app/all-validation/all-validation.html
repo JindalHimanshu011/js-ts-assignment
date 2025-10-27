@@ -20,7 +20,7 @@
 
     <button type="submit" [disabled]="!userForm.valid || hasErrors()">Submit</button>
 <br/>
-
+<p>Pipe example</p>
     <input (keyup)="showMessage($event)"/>
     <p>{{displayMessage | uppercase}}</p>
 </form>
