@@ -19,7 +19,8 @@
             <p><strong>Departure:</strong> {{item.departure_time}} AM</p>
             <p><strong>Arrival:</strong> {{item.arrival_time}}</p>
             <p><strong>Fare:</strong>{{item.fare}}</p>
-            <button class="book-btn" (click)="bookTicket()">Book Now</button>
+            <p><strong>Available Seats:</strong>{{item.capacity}}</p>
+            <button class="book-btn" (click)="bookTicket(item.bus_id)">Book Now</button>
             <button class="book-btn" (click)="goBack()">Go Back</button>
         </div>
     </main>

@@ -29,11 +29,11 @@ export class BusDetail {
 
 
 
-  public bookTicket(): void {
-    this.router.navigate(['bookTicket']);
+  public bookTicket(id = ''): void {
+    this.router.navigate(['bookTicket', id]);
   }
 
-    public goBack(): void {
+  public goBack(): void {
     this.router.navigate(['busList']);
   }
 }
