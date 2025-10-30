@@ -14,7 +14,7 @@ export class BookTicket {
   name: string = '';
   mobile: string = '';
   date: string = '';
-  passengers: number = 0;
+  passengers: any = 0;
   busId = '';
 
   nameError: string = '';
@@ -91,6 +91,36 @@ export class BookTicket {
   public submitForm(form: NgForm): void {
     debugger;
     alert('hello');
+    if (!this.hasErrors()) {
+
+      localStorage.setItem('booking', 'busId,Name,Mobile,date,seats');
+      let buses = localStorage.getItem('busList');
+      if (buses) {
+        let parseData = JSON.parse(buses);
+        let bus = Array.isArray(parseData) ? parseData : [];
+        bus.forEach(item => {
+          if (item.bus_id == this.busId) {
+
+            if (item.capacity - this.passengers > 0)
+              item.capacity = item.capacity - this.passengers;
+            else {
+              alert("Seats are not available. total available seats are :" + item.capacity);
+              return;
+            }
+
+          }
+        })
+
+        localStorage.setItem('busList', JSON.stringify(bus));
+
+        let returnData = bus.filter(b => b.bus_id == this.busId);
+      }
+
+
+
+    } else {
+      console.error('Fix form errors before submitting');
+    }
 
     this.router.navigate(['bookingList']);
   }
